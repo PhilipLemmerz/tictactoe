@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'calibri', sans-serif;
+    background-color: #F5FAFD;
+}
+
+td {
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+}
+
+.cellIconCircle {
+    color: #0058A2;     
+    font-size: 5rem;    
+}
+
+.cellIconCross {
+    color: #FBD914; 
+    font-size: 5rem;    
+}
+
+#players {
+    display: flex;
+    column-gap: 3rem;
+}
+
+#playerIconCircle {
+    color: #0058A2;    
+    font-size: 3rem;    
+}
+
+#playerIconCross {
+    color: #FBD914; 
+    font-size: 3rem;
+}
+
+.currentPlayer {
+    background-color: #6db72d6c;
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;    
+}
+
+#player1, #player2 {
+    padding: 1rem;
+}
+
