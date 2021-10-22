@@ -8,6 +8,10 @@ body {
     background-color: #F5FAFD;
 }
 
+#box {
+    position: relative;
+}
+
 td {
     border: 2px solid black;
     width: 200px;
@@ -16,6 +20,8 @@ td {
 
 table {
     border-collapse: collapse;
+    position: relative;
+    z-index: 1;    
 }
 
 td {
@@ -56,4 +62,37 @@ td {
 #player1, #player2 {
     padding: 1rem;
 }
+#canvas{
+    position: absolute;
+    top: 0;
+    width: 610px;
+    height: 610px;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.226);
+}
 
+gameOver {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    flex-direction: column;
+}
+
+#gameOverPic {
+    width: 80%;
+
+   
+}
+#gameOverText {
+    font-size: 2.5rem;
+    color: #147403;
+    
+    
+}
