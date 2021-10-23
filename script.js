@@ -74,8 +74,14 @@ function checkWin(icon) {
         drawLine(20,10,280,140);
     }
     else if(winOption8.every(v => winner.includes(v))){
-        drawLine(280,10,10,140);
-    }   
+        drawLine(280,10,10,140);    
+    }
+    
+    else if( resultsPlayerCircle.length >=5 || resultsPlayerCross.length>=5) {
+        setTimeout(()=> gameOver('noWinner'), 2000);
+    }
+   
+     
 }
 
 function drawLine(xStart, yStart, xEnd, yEnd) {
@@ -91,12 +97,15 @@ function drawLine(xStart, yStart, xEnd, yEnd) {
     setTimeout(gameOver, 1000);
 }
 
-function gameOver() {
+function gameOver(noWinner) {
     let winnerName;
-    if(winner == resultsPlayerCross){
-       winnerName = 'Player-Cross';
-    } else {
-        winnerName = 'Player-Circle';
+    if(noWinner == 'noWinner'){
+        winnerName = 'Kein Spieler hat gewonnen'
+    }
+    else if(winner == resultsPlayerCross){
+       winnerName = 'Spieler <strong> <span style="color:#147403"> Player-Cross </span></strong> hat gewonnen.';
+    } else{
+        winnerName = 'Spieler <strong><span style="color:#147403"> Player-Circle </span></strong> hat gewonnen.';
     }
 
     let content = document.querySelector('body');
@@ -104,9 +113,29 @@ function gameOver() {
     
     gameOverDiv.innerHTML = `
         <img  id="gameOverPic" src="/img/gameOver.png">
-        <p id="gameOverText"> Spieler <b>${winnerName}</b> hat gewonnen. </p>
+        <p id="gameOverText"> ${winnerName}</p>
+        <button id="newGameBTN" onclick="newGame()"> neu starten </button>
     `;
     content.appendChild(gameOverDiv);
 }
+
+function newGame() {
+    let gameOverDiv = document.querySelector('gameOver');
+    let draw =  canvas.getContext('2d');
+    let td = document.querySelectorAll('td');
+    
+    gameOverDiv.parentElement.removeChild(gameOverDiv);
+    draw.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('canvas').style.zIndex ='0';
+
+    for(i=0; i<td.length; i++){
+        td[i].innerHTML = '';
+    } 
+
+    resultsPlayerCircle = [];
+    resultsPlayerCross = [];
+}
+
+
 
 

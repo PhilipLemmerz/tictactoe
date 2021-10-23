@@ -10,6 +10,7 @@ body {
 
 #box {
     position: relative;
+    
 }
 
 td {
@@ -65,19 +66,17 @@ td {
 #canvas{
     position: absolute;
     top: 0;
-    width: 610px;
-    height: 610px;
+    width: 100%;
+    height: 100%;
     z-index: 0;
-    background-color: rgba(0, 0, 0, 0.226);
-}
-
+}    
 gameOver {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,13 +85,38 @@ gameOver {
 }
 
 #gameOverPic {
-    width: 80%;
-
-   
+    width: 80%;   
 }
+
 #gameOverText {
-    font-size: 2.5rem;
-    color: #147403;
-    
-    
+    font-size: 2.5rem;       
+}
+
+#newGameBTN{
+    background-color: #0058A2 ;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.7rem;
+    border-radius: 0.2rem;
+    color: white;
+}
+
+#newGameBTN:hover {
+    cursor: pointer;
+    background-color: #0059a2c4;
+
+}
+
+@media screen and (max-width: 600px) {
+    #gameOverText {
+        font-size: 1.5rem;   
+        text-align: center;    
+    }
+
+    #newGameBTN{        
+        font-size: 1.2rem;
+        padding: 0.5rem;        
+    }
+
+
 }
